@@ -1,0 +1,1491 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>成語&amp;修辭配對</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-top: #EAF4FB;
+    --bg-bottom: #CFE8F7;
+    --paper: #FFFFFF;
+    --paper-soft: #F6FBFE;
+    --ink: #1E3A4C;
+    --ink-soft: #5B7A8C;
+    --line: #D8E8F0;
+    --sun: #FFC93C;
+    --sun-deep: #F2A900;
+    --cat0: #FF6B6B;   /* 譬喻 */
+    --cat0-soft: #FFE3E3;
+    --cat1: #2FB894;   /* 類疊 */
+    --cat1-soft: #DAF4EC;
+    --cat2: #6E7FE0;   /* 設問 */
+    --cat2-soft: #E3E6FB;
+    --cat3: #E0A15C;   /* 備用第4類 */
+    --cat3-soft: #FBEBD8;
+    --danger: #E85555;
+    --shadow-line: 0 3px 0 var(--line), 0 6px 14px rgba(30,58,76,0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg-top: #0F2233;
+      --bg-bottom: #0A1826;
+      --paper: #17293B;
+      --paper-soft: #12212F;
+      --ink: #EAF4FB;
+      --ink-soft: #9FC0D4;
+      --line: #24394C;
+      --sun: #FFD166;
+      --sun-deep: #FFB238;
+      --cat0: #FF8A8A;
+      --cat0-soft: #3A2226;
+      --cat1: #4FD9B4;
+      --cat1-soft: #163229;
+      --cat2: #9AA4F2;
+      --cat2-soft: #232849;
+      --cat3: #E8B67C;
+      --cat3-soft: #34281a;
+      --danger: #FF6B6B;
+      --shadow-line: 0 3px 0 var(--line), 0 6px 14px rgba(0,0,0,0.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg-top: #0F2233;
+    --bg-bottom: #0A1826;
+    --paper: #17293B;
+    --paper-soft: #12212F;
+    --ink: #EAF4FB;
+    --ink-soft: #9FC0D4;
+    --line: #24394C;
+    --sun: #FFD166;
+    --sun-deep: #FFB238;
+    --cat0: #FF8A8A;
+    --cat0-soft: #3A2226;
+    --cat1: #4FD9B4;
+    --cat1-soft: #163229;
+    --cat2: #9AA4F2;
+    --cat2-soft: #232849;
+    --cat3: #E8B67C;
+    --cat3-soft: #34281a;
+    --danger: #FF6B6B;
+    --shadow-line: 0 3px 0 var(--line), 0 6px 14px rgba(0,0,0,0.25);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+    color: var(--ink);
+    min-height: 100vh;
+    padding-bottom: 48px;
+  }
+
+  .wave {
+    display: block;
+    width: 100%;
+    height: 46px;
+  }
+  .wave path { fill: var(--paper); opacity: 0.55; }
+  .wave path.p2 { opacity: 0.35; }
+
+  .page { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  header.top {
+    padding: 22px 4px 8px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand-mark {
+    width: 46px; height: 46px;
+    flex-shrink: 0;
+  }
+  h1 {
+    font-family: 'Baloo 2', 'Noto Sans TC', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: .5px;
+    color: var(--ink);
+  }
+  .lesson-name {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .mode-toggle {
+    display: flex;
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 3px;
+    box-shadow: var(--shadow-line);
+    gap: 2px;
+  }
+  .mode-btn {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 12.5px;
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    padding: 8px 12px;
+    border-radius: 9px;
+    cursor: pointer;
+  }
+  .mode-btn.active { background: var(--ink); color: var(--paper); }
+  .btn-ghost {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: var(--shadow-line);
+  }
+  .btn-ghost:active { transform: translateY(1px); }
+  .btn-ghost.active { background: var(--ink); color: var(--paper); }
+
+  .lesson-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 6px 4px 18px;
+  }
+  .lesson-tab {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    border: 1.5px solid var(--line);
+    background: var(--paper);
+    color: var(--ink-soft);
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .lesson-tab.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .stats-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 4px 18px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .stat b {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .progress-track {
+    flex: 1;
+    min-width: 120px;
+    height: 8px;
+    background: var(--paper);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1.5px var(--line);
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cat1), var(--sun));
+    border-radius: 6px;
+    width: 0%;
+    transition: width .35s ease;
+  }
+
+  .timer-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  .timer-track {
+    width: 90px;
+    height: 8px;
+    background: var(--paper);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1.5px var(--line);
+  }
+  .timer-fill {
+    height: 100%;
+    background: var(--cat1);
+    border-radius: 6px;
+    width: 100%;
+    transition: width 1s linear, background-color .3s ease;
+  }
+  .timer-fill.low { background: var(--danger); }
+  .timer-value {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    min-width: 26px;
+    font-variant-numeric: tabular-nums;
+  }
+  .timer-value.low {
+    color: var(--danger);
+    animation: pulseTime 1s ease infinite;
+  }
+  @keyframes pulseTime {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+  }
+  .baskets.locked .basket,
+  .pool.locked .card {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  .board {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+  @media (max-width: 720px) {
+    .board { grid-template-columns: 1fr; }
+  }
+  .board.stacked {
+    grid-template-columns: 1fr;
+  }
+
+  .baskets {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .baskets.grid-mode {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 10px;
+  }
+  .baskets.grid-mode .basket {
+    padding: 10px 12px 9px;
+  }
+  .baskets.grid-mode .basket-hint {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .baskets.grid-mode .basket-slots {
+    margin-top: 8px;
+  }
+  .baskets.grid-mode .basket-chip {
+    font-size: 11.5px;
+    padding: 6px 8px;
+  }
+  .basket {
+    background: var(--paper);
+    border-radius: 18px;
+    padding: 14px 14px 12px;
+    box-shadow: var(--shadow-line);
+    border: 2.5px solid transparent;
+    transition: border-color .15s ease, transform .12s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .basket::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 6px;
+    background: var(--cat-color, var(--cat0));
+  }
+  .basket:hover { transform: translateY(-1px); }
+  .basket.selected {
+    border-color: var(--cat-color, var(--cat0));
+  }
+  .basket.wrong {
+    animation: shake .38s ease;
+  }
+  .basket.complete {
+    opacity: .55;
+    cursor: default;
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+  }
+  .basket-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-left: 8px;
+  }
+  .basket-name {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--cat-color, var(--cat0));
+  }
+  .basket-count {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    background: var(--cat-soft, var(--cat0-soft));
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .basket-hint {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 6px 0 0 8px;
+    line-height: 1.5;
+  }
+  body.test-mode .basket-hint { display: none; }
+  .basket-slots {
+    margin: 10px 0 0 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .basket-chip {
+    background: var(--cat-soft, var(--cat0-soft));
+    color: var(--ink);
+    font-size: 12.5px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    line-height: 1.4;
+  }
+
+  .pool-wrap {
+    background: var(--paper-soft);
+    border-radius: 18px;
+    padding: 16px;
+    min-height: 220px;
+  }
+  .pool-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+    margin: 0 0 10px 4px;
+  }
+  .pool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: flex-start;
+  }
+  .card {
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 13px 15px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    box-shadow: var(--shadow-line);
+    cursor: pointer;
+    max-width: 100%;
+    border: 2.5px solid transparent;
+    transition: transform .12s ease, border-color .15s ease;
+  }
+  .card:hover { transform: translateY(-1px); }
+  .card.selected {
+    border-color: var(--sun-deep);
+    background: var(--paper-soft);
+    box-shadow: var(--shadow-line), 0 0 0 1px var(--sun-deep) inset;
+  }
+  .card-note {
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sun-deep);
+  }
+  .card.wrong-shake { animation: shake .38s ease; border-color: var(--danger); }
+  .card:active { transform: scale(0.98); }
+  .pool-empty {
+    color: var(--ink-soft);
+    font-size: 13px;
+    padding: 20px 4px;
+  }
+
+  .toast {
+    position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
+    background: var(--ink); color: var(--paper); padding: 10px 20px;
+    border-radius: 30px; font-size: 13px; font-weight: 500; z-index: 90;
+    opacity: 0; transition: opacity .2s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast.show { opacity: 1; }
+
+  .overlay {
+    position: fixed; inset: 0;
+    background: rgba(15, 34, 51, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .overlay.show { display: flex; }
+  .win-card {
+    background: var(--paper);
+    border-radius: 24px;
+    padding: 32px 28px;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  }
+  .win-card h2 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 26px;
+    margin: 4px 0 6px;
+  }
+  .stars {
+    font-size: 40px;
+    letter-spacing: 4px;
+    margin: 10px 0 8px;
+  }
+  .star-dim { opacity: .25; }
+  .win-sub {
+    color: var(--ink-soft);
+    font-size: 13.5px;
+    margin-bottom: 20px;
+  }
+  .win-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  .btn-primary {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    border-radius: 12px;
+    padding: 11px 20px;
+    cursor: pointer;
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  button:focus-visible, .basket:focus-visible, .card:focus-visible, .lesson-tab:focus-visible {
+    outline: 3px solid var(--cat2);
+    outline-offset: 2px;
+  }
+
+  /* ===== 一題一題選字模式 ===== */
+  .pick-panel {
+    background: var(--paper);
+    border-radius: 22px;
+    box-shadow: var(--shadow-line);
+    padding: 26px 18px 24px;
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .pick-count { font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+  .pick-word {
+    display: flex; justify-content: center; align-items: center; gap: 6px;
+    margin: 18px 0 6px;
+    font-size: 56px; font-weight: 900; line-height: 1.1;
+  }
+  .pick-box {
+    width: 1.15em; height: 1.15em;
+    border: 3px dashed var(--ink-soft);
+    border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .pick-box.ok { border: 3px solid var(--cat1); color: var(--cat1); background: var(--cat1-soft); }
+  .pick-box.no { border: 3px solid var(--danger); color: var(--danger); background: var(--cat0-soft); }
+  .pick-zhuyin { font-size: 17px; color: var(--ink-soft); letter-spacing: 2px; margin-bottom: 22px; }
+  .pick-options { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+  .pick-opt {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 40px; font-weight: 900;
+    width: 92px; height: 92px;
+    border-radius: 18px;
+    border: 3px solid var(--line);
+    background: var(--paper-soft);
+    color: var(--ink);
+    cursor: pointer;
+    box-shadow: var(--shadow-line);
+  }
+  .pick-opt:hover:not(:disabled) { border-color: var(--sun-deep); }
+  .pick-opt:disabled { cursor: default; }
+  .pick-opt.ok { border-color: var(--cat1); background: var(--cat1-soft); color: var(--cat1); }
+  .pick-opt.no { border-color: var(--danger); background: var(--cat0-soft); color: var(--danger); animation: shake .38s ease; }
+  .pick-kind {
+    display: inline-block; padding: 3px 10px; border-radius: 20px;
+    font-size: 12px; color: #fff; background: var(--cat2);
+  }
+  .pick-kind.sound { background: var(--cat0); }
+  .pick-mark { color: var(--danger); text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 3px; }
+  .pick-mark-inline { color: var(--danger); }
+  .pick-note { font-size: 14px; margin-bottom: 8px; letter-spacing: 0; }
+  .pick-zhuyin { letter-spacing: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px; }
+  .pick-zhuyin:empty { margin-bottom: 18px; }
+  .pick-box.sound { width: auto; min-width: 92px; height: 46px; padding: 0 10px; font-size: 24px; font-weight: 900; }
+  .pick-note { flex-basis: 100%; }
+  .pick-opt.sound { width: auto; min-width: 120px; padding: 0 16px; font-size: 28px; }
+  .pick-feedback { min-height: 26px; margin-top: 18px; font-size: 16px; font-weight: 700; }
+  .pick-feedback.ok { color: var(--cat1); }
+  .pick-feedback.no { color: var(--danger); }
+  .pick-next { margin-top: 10px; }
+  @media (max-width: 480px) {
+    .pick-word { font-size: 46px; }
+    .pick-opt { width: 74px; height: 74px; font-size: 34px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pick-opt.no { animation: none; }
+    .basket, .card, .progress-fill, .timer-fill { transition: none; }
+    .basket.wrong, .card.wrong-shake, .timer-value.low { animation: none; }
+  }
+</style>
+
+<div class="page">
+  <header class="top">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none">
+        <path d="M6 30 Q24 22 42 30 L38 36 Q24 32 10 36 Z" fill="var(--cat2)"/>
+        <path d="M24 8 L24 28" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 10 Q34 14 24 22 Z" fill="var(--cat0)"/>
+      </svg>
+      <div>
+        <h1>成語&amp;修辭配對</h1>
+        <div class="lesson-name" id="lessonName">第 1 課：字的小旅行</div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="mode-toggle" role="group" aria-label="切換模式">
+        <button class="mode-btn" id="btnLearn" aria-pressed="false">💡 學習模式</button>
+        <button class="mode-btn active" id="btnTest" aria-pressed="true">📝 測驗模式</button>
+      </div>
+      <button class="btn-ghost active" id="btnTimerToggle" aria-pressed="true">⏱ 限時30秒</button>
+      <button class="btn-ghost" id="btnRestart">↺ 重新開始</button>
+    </div>
+  </header>
+
+  <div class="lesson-tabs" id="lessonTabs"></div>
+
+  <div class="stats-row">
+    <div class="stat">已完成 <b id="statDone">0</b>/<span id="statTotal">0</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="stat">⚠️ 答錯 <b id="statMiss">0</b></div>
+    <div class="timer-wrap" id="timerWrap">
+      <span>⏱</span>
+      <div class="timer-track"><div class="timer-fill" id="timerFill"></div></div>
+      <div class="timer-value" id="timerValue">30</div>
+    </div>
+  </div>
+
+  <main class="board" id="board">
+    <section class="baskets" id="baskets" aria-label="修辭類別"></section>
+    <section class="pool-wrap">
+      <div class="pool-title">句子（點一句，再點左邊的修辭類別）</div>
+      <div class="pool" id="pool"></div>
+    </section>
+  </main>
+
+  <section class="pick-panel" id="pickPanel" hidden>
+    <div class="pick-count" id="pickCount"></div>
+    <div class="pick-word" id="pickWord"></div>
+    <div class="pick-zhuyin" id="pickZhuyin"></div>
+    <div class="pick-options" id="pickOptions"></div>
+    <div class="pick-feedback" id="pickFeedback"></div>
+    <button class="btn-primary pick-next" id="pickNext" hidden>下一題 ➜</button>
+  </section>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="overlay" id="winOverlay">
+  <div class="win-card">
+    <div style="font-size:34px;" id="winIcon">🎉</div>
+    <h2 id="winTitle">全部過關！</h2>
+    <div class="stars" id="stars"></div>
+    <div class="win-sub" id="winSub"></div>
+    <div class="win-actions">
+      <button class="btn-primary" id="btnPlayAgain">再玩一次</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   課程資料區：以後每一課只要在 LESSONS 陣列裡「新增一個物件」即可，
+   不需要更動下面的程式邏輯。
+
+   categories：這一課要考的修辭類別，順序就是卡片顯示順序
+     - name：修辭名稱（顯示在籃子上）
+     - hint：這個修辭的簡短說明（學習模式才會顯示）
+
+   sentences：句子題目
+     - text：句子內容
+     - cat：對應 categories 陣列的索引（從 0 開始）
+     　　例如 cat: 0 代表對應到 categories[0]
+     - 同一個修辭可以有兩句以上，只要 cat 設一樣的數字即可
+   ============================================================ */
+const LESSONS = [
+  {
+    id: 'l1',
+    title: '第 1 課：字的小旅行',
+    categories: [
+      { name: '譬喻', hint: '修辭補給站：類疊／譬喻／排比（僅供學習參考）' },
+      { name: '類疊', hint: '修辭補給站：類疊／譬喻／排比（僅供學習參考）' },
+      { name: '設問', hint: '用問句引出思考，也可能自問自答。' }
+    ],
+    sentences: [
+      { text: '心是一葉舟。', cat: 0 },
+      { text: '一點落舟前，一點落舟中，一點落舟後。', cat: 1 },
+      { text: '一下變成息，愛休息，小船停下不航行；一下變成忌，愛忌妒，快樂消失太可惜。', cat: 1 },
+      { text: '心的小船輕輕走。', cat: 1 },
+      { text: '小船上要載什麼？', cat: 2 },
+      { text: '只載自己好不好？不好，不好，不好！', cat: 2 }
+    ]
+  },
+  {
+    id: 'l1-idiom',
+    title: '第 1 課成語',
+    categories: [
+      { name: '木已成舟', hint: '例句：過去的事木已成舟，如今說什麼都是多餘。' },
+      { name: '洋洋灑灑', hint: '例句：他拿起筆，在短時間內洋洋灑灑的寫下了一篇文章。' },
+      { name: '滿載而歸', hint: '例句：這次戶外教育，同學們都滿載而歸，收穫非常多。' },
+      { name: '塞翁失馬', hint: '例句：那位明星雖然沒有得獎，但是從此打開了知名度，真可說是塞翁失馬。' }
+    ],
+    sentences: [
+      { text: '木材已經做成船隻，比喻已成事實，無法改變。', cat: 0 },
+      { text: '形容言論或文章長篇大論。', cat: 1 },
+      { text: '裝載得滿滿的回來，比喻收穫豐富。', cat: 2 },
+      { text: '比喻暫時受到損失，卻因禍得福，終於得到好處。', cat: 3 }
+    ]
+  },
+  {
+    id: 'l1-pick',
+    type: 'pick',
+    title: '第 1 課多音字＆形近字',
+    groups: [
+      { kind: 'sound', chars: ['ㄗㄞˋ', 'ㄗㄞˇ'], items: [
+        { word: '裝載', mark: 1, answer: 'ㄗㄞˋ' },
+        { word: '千載難逢', mark: 1, answer: 'ㄗㄞˇ' }
+      ]},
+      { kind: 'shape', chars: ['舟', '丹'], items: [
+        { word: '順水推□', answer: '舟' },
+        { word: '靈□', answer: '丹' }
+      ]},
+      { kind: 'shape', chars: ['載', '戴'], items: [
+        { word: '負□', answer: '載' },
+        { word: '配□', answer: '戴' }
+      ]},
+      { kind: 'shape', chars: ['讓', '壤'], items: [
+        { word: '忍□', answer: '讓' },
+        { word: '土□', answer: '壤' }
+      ]},
+      { kind: 'shape', chars: ['忌', '忘'], items: [
+        { word: '禁□', answer: '忌' },
+        { word: '遺□', answer: '忘' }
+      ]},
+      { kind: 'shape', chars: ['訣', '決'], items: [
+        { word: '祕□', answer: '訣' },
+        { word: '判□', answer: '決' }
+      ]}
+    ]
+  },
+  {
+    id: 'l2',
+    title: '第 2 課：妙故事點點名',
+    categories: [
+      { name: '家喻戶曉', hint: '例句：李安是一位家喻戶曉的電影導演。' },
+      { name: '拍案叫絕', hint: '例句：看到同學精采的表演，大家都拍案叫絕。' },
+      { name: '東窗事發', hint: '例句：那個犯罪集團所做的壞事東窗事發，受到法律制裁。' },
+      { name: '搖旗吶喊', hint: '例句：觀眾席上的球迷紛紛為自己支持的隊伍搖旗吶喊。' }
+    ],
+    sentences: [
+      { text: '家家戶戶都知曉，形容事情、名聲傳播極廣。', cat: 0 },
+      { text: '拍桌子叫好，形容非常讚賞。', cat: 1 },
+      { text: '在東窗下的密謀已被揭發，比喻陰謀或非法勾當敗露。', cat: 2 },
+      { text: '打仗時，揮舞旗幟，嘶喊以助聲威，比喻為他人助長聲勢。', cat: 3 }
+    ]
+  },
+  {
+    id: 'l2-rhetoric',
+    title: '第 2 課修辭',
+    categories: [
+      { name: '因果複句', hint: '用「因為……」等關聯詞，說明事情發生的原因和結果。' },
+      { name: '轉折複句', hint: '用「雖然……可是／不過……」等關聯詞，前後意思有轉折、落差。' },
+      { name: '類疊', hint: '修辭補給站：類疊／譬喻／排比（僅供學習參考）' }
+    ],
+    sentences: [
+      { text: '以樂最近經常看著窗戶外面，因為那裡有棵大樹，常常有小鳥飛過去。', cat: 0 },
+      { text: '雖然他張大了眼睛看著黑板，可是怎麼也找不到答案。', cat: 1 },
+      { text: '這次你說對了，不過，你老是看窗外是不行的。', cat: 1 },
+      { text: '王叔叔手忙腳亂，慌慌張張的抓起雨傘，飛也似的下車。', cat: 2 }
+    ]
+  },
+  {
+    id: 'l2-pick',
+    type: 'pick',
+    title: '第 2 課多音字＆形近字',
+    groups: [
+      { kind: 'sound', chars: ['ㄨㄞ', 'ㄨㄞˇ'], items: [
+        { word: '歪七扭八', mark: 0, answer: 'ㄨㄞ' },
+        { word: '歪了腳', mark: 0, answer: 'ㄨㄞˇ' }
+      ]},
+      { kind: 'sound', chars: ['ㄉㄚˊ', 'ㄉㄚ'], items: [
+        { word: '作答', mark: 1, answer: 'ㄉㄚˊ' },
+        { word: '答理', mark: 0, answer: 'ㄉㄚ' }
+      ]},
+      { kind: 'sound', chars: ['ㄏㄨㄤˇ', 'ㄏㄨㄤˋ'], items: [
+        { word: '明晃晃', mark: 1, answer: 'ㄏㄨㄤˇ' },
+        { word: '搖頭晃腦', mark: 2, answer: 'ㄏㄨㄤˋ' }
+      ]},
+      { kind: 'shape', chars: ['窗', '囪'], items: [
+        { word: '□口', answer: '窗' },
+        { word: '煙□', answer: '囪' }
+      ]},
+      { kind: 'shape', chars: ['答', '搭', '塔'], items: [
+        { word: '作□', answer: '答' },
+        { word: '□配', answer: '搭' },
+        { word: '金字□', answer: '塔' }
+      ]},
+      { kind: 'shape', chars: ['專', '傳'], items: [
+        { word: '□攻', answer: '專' },
+        { word: '□染', answer: '傳' }
+      ]},
+      { kind: 'shape', chars: ['穫', '獲', '護'], items: [
+        { word: '收□', answer: '穫' },
+        { word: '捕□', answer: '獲' },
+        { word: '醫□', answer: '護' }
+      ]},
+      { kind: 'shape', chars: ['己', '已'], items: [
+        { word: '知□知彼', answer: '己' },
+        { word: '而□', answer: '已' }
+      ]}
+    ]
+  },
+  {
+    id: 'l3',
+    title: '第 3 課：繞口令村的成語',
+    categories: [
+      { name: '咎由自取', hint: '例句：他的品行差勁，難怪不受大家歡迎，這是他咎由自取。' },
+      { name: '撲朔迷離', hint: '例句：這個故事情節撲朔迷離，讓人很想繼續看下去。' },
+      { name: '餘音繞梁', hint: '例句：他的歌聲優美，餘音繞梁，讓人回味不已。' },
+      { name: '嘆為觀止', hint: '例句：看到美麗的煙火表演，大家都嘆為觀止。' }
+    ],
+    sentences: [
+      { text: '所有的罪過、災禍都是自己造成的。', cat: 0 },
+      { text: '形容事物錯綜複雜，難以辨明真相。', cat: 1 },
+      { text: '形容歌聲或音樂美妙，餘味不絕。', cat: 2 },
+      { text: '讚美所看到的事物好到極點，無與倫比。', cat: 3 }
+    ]
+  },
+  {
+    id: 'l3-rhetoric',
+    title: '第 3 課修辭',
+    categories: [
+      { name: '因果複句', hint: '用「由於……因此……」等關聯詞，說明事情發生的原因和結果。' },
+      { name: '遞進複句', hint: '用「不但……而且……」「除了……還……」等關聯詞，意思一層一層往上加。' },
+      { name: '並列複句', hint: '用「也」等關聯詞，把兩個地位相同、平行並列的意思連接起來。' },
+      { name: '引用', hint: '把別人說過的話，用引號直接引述出來，讓內容更生動真實。' }
+    ],
+    sentences: [
+      { text: '由於突如其來的暴風雨，因此我的船在海上迷失了方向。', cat: 0 },
+      { text: '我們用料實在，除了最好吃的灰雞，飯後還有水果。', cat: 1 },
+      { text: '那個地方就叫「繞口令村」，我在那裡停留十多天，也學會了好幾個有趣的繞口令。', cat: 2 },
+      { text: '老闆熱情的說：「我們用料實在，除了最好吃的『灰雞』，飯後還有水果。」', cat: 3 }
+    ]
+  },
+  {
+    id: 'l3-pick',
+    type: 'pick',
+    title: '第 3 課多音字＆形近字',
+    groups: [
+      { kind: 'sound', chars: ['ㄅㄠˋ', 'ㄆㄨˋ'], items: [
+        { word: '暴發', mark: 0, answer: 'ㄅㄠˋ' },
+        { word: '暴露', mark: 0, answer: 'ㄆㄨˋ' }
+      ]},
+      { kind: 'sound', chars: ['ㄍㄨㄢ', 'ㄍㄨㄢˋ'], items: [
+        { word: '觀賞', mark: 0, answer: 'ㄍㄨㄢ' },
+        { word: '道觀', mark: 1, answer: 'ㄍㄨㄢˋ' }
+      ]},
+      { kind: 'shape', chars: ['由', '甲', '田'], items: [
+        { word: '來□', answer: '由' },
+        { word: '盔□', answer: '甲' },
+        { word: '梯□', answer: '田' }
+      ]},
+      { kind: 'shape', chars: ['暴', '瀑'], items: [
+        { word: '自□自棄', answer: '暴' },
+        { word: '□布', answer: '瀑' }
+      ]},
+      { kind: 'shape', chars: ['迷', '謎'], items: [
+        { word: '□途', answer: '迷' },
+        { word: '□題', answer: '謎' }
+      ]},
+      { kind: 'shape', chars: ['撞', '僮'], items: [
+        { word: '□倒', answer: '撞' },
+        { word: '書□', answer: '僮' }
+      ]},
+      { kind: 'shape', chars: ['扶', '抉'], items: [
+        { word: '□持', answer: '扶' },
+        { word: '□擇', answer: '抉' }
+      ]},
+      { kind: 'shape', chars: ['店', '沾', '站'], items: [
+        { word: '□家', answer: '店' },
+        { word: '□汙', answer: '沾' },
+        { word: '車□', answer: '站' }
+      ]},
+      { kind: 'shape', chars: ['機', '幾'], items: [
+        { word: '相□', answer: '機' },
+        { word: '□乎', answer: '幾' }
+      ]},
+      { kind: 'shape', chars: ['料', '科', '抖'], items: [
+        { word: '備□', answer: '料' },
+        { word: '□技', answer: '科' },
+        { word: '顫□', answer: '抖' }
+      ]},
+      { kind: 'shape', chars: ['繞', '燒', '澆'], items: [
+        { word: '□路', answer: '繞' },
+        { word: '□焦', answer: '燒' },
+        { word: '□灌', answer: '澆' }
+      ]},
+      { kind: 'shape', chars: ['觀', '歡'], items: [
+        { word: '□察', answer: '觀' },
+        { word: '□樂', answer: '歡' }
+      ]}
+    ]
+  },
+  {
+    id: 'l4-idiom',
+    title: '第 4 課：小丑魚和海葵的成語',
+    categories: [
+      { name: '各懷鬼胎', hint: '例句：本來說好要合作，他們卻各懷鬼胎，看樣子這個約定要破局了。' },
+      { name: '痛改前非', hint: '例句：如果你能痛改前非，大家肯定會原諒你。' },
+      { name: '居安思危', hint: '例句：我們要有居安思危的想法，遇到緊急情況，才能應付。' },
+      { name: '欺善怕惡', hint: '例句：他看到欺善怕惡的人，總是會伸出援手，幫助受害者。' }
+    ],
+    sentences: [
+      { text: '比喻各自藏著不可告人的念頭、算計。', cat: 0 },
+      { text: '徹底改正以往的過錯。', cat: 1 },
+      { text: '處於安樂的時候，要想到危險可能會隨時出現。', cat: 2 },
+      { text: '欺負善良弱小的人，卻害怕蠻橫不講理的惡人。', cat: 3 }
+    ]
+  },
+  {
+    id: 'l4-rhetoric',
+    title: '第 4 課修辭',
+    categories: [
+      { name: '並列複句', hint: '' },
+      { name: '承接複句', hint: '' },
+      { name: '轉折複句', hint: '' },
+      { name: '類疊', hint: '' },
+      { name: '譬喻', hint: '' },
+      { name: '排比', hint: '' }
+    ],
+    note: '句子（點一句，再點左邊的類別）。「在神秘的大海中……」這一句同時符合好幾種，每一種都要配對喔！',
+    sentences: [
+      { text: '在神秘的大海中，有一大片漂亮的海葵，有的像紅寶石，有的像綠寶石，有的像一朵花，有的像一棵樹，形成一個巨大的花園城堡。', cat: [0, 3, 4, 5] },
+      { text: '沒想到他（黃色大魚）一靠近，就露出不懷好意的笑容，張開大大的嘴巴，吸了一口氣。', cat: 1 },
+      { text: '海葵望著遠去的大魚說：「我的觸手雖然美麗，卻是有毒的。小丑魚是我的好朋友，誰都不能欺負他。」', cat: 2 }
+    ]
+  },
+  {
+    /* 一題一題選字：type 設成 'pick'
+       groups：每一組形近字 chars，和這一組的題目 items
+         - word：詞語，要填的位置寫「□」
+         - zhuyin：注音
+         - answer：正確的字（一定要是 chars 裡的其中一個）
+       選項只會出現「同一組」的字 */
+    id: 'l4-pick',
+    type: 'pick',
+    title: '第 4 課多音字＆形近字',
+    /* kind: 'sound' 多音字（mark＝要判斷讀音的字在詞語中的位置，從0開始）
+       kind: 'shape' 形近字（word裡用□標出要填的字）
+       題目順序：先多音字、再形近字，各自打亂 */
+    groups: [
+      { kind: 'sound', chars: ['ㄌㄨˋ', 'ㄌㄡˋ'], items: [
+        { word: '表露', mark: 1, answer: 'ㄌㄨˋ' },
+        { word: '露臉', mark: 0, answer: 'ㄌㄡˋ' }
+      ]},
+      { kind: 'sound', chars: ['ㄕㄜˋ', 'ㄧㄝˋ'], items: [
+        { word: '射箭', mark: 0, answer: 'ㄕㄜˋ' },
+        { word: '射干', mark: 0, answer: 'ㄧㄝˋ', note: '（一種植物名）' }
+      ]},
+      { kind: 'shape', chars: ['懷', '壞', '壤'], items: [
+        { word: '破□', answer: '壞' },
+        { word: '土□', answer: '壤' },
+        { word: '感□', answer: '懷' }
+      ]},
+      { kind: 'shape', chars: ['準', '准'], items: [
+        { word: '□許', answer: '准' },
+        { word: '標□', answer: '準' }
+      ]},
+      { kind: 'shape', chars: ['射', '躬', '躺'], items: [
+        { word: '鞠□', answer: '躬' },
+        { word: '□椅', answer: '躺' },
+        { word: '發□', answer: '射' }
+      ]},
+      { kind: 'shape', chars: ['遇', '偶', '愚', '寓'], items: [
+        { word: '□爾', answer: '偶' },
+        { word: '公□', answer: '寓' },
+        { word: '遭□', answer: '遇' },
+        { word: '□弄', answer: '愚' }
+      ]}
+    ]
+  },
+  {
+    id: 'l5-pick',
+    type: 'pick',
+    title: '第 5 課形近字',
+    groups: [
+      { kind: 'shape', chars: ['球', '求'], items: [
+        { word: '橄欖□', answer: '球' },
+        { word: '□學', answer: '求' }
+      ]},
+      { kind: 'shape', chars: ['努', '怒'], items: [
+        { word: '□力', answer: '努' },
+        { word: '發□', answer: '怒' }
+      ]},
+      { kind: 'shape', chars: ['壓', '厭'], items: [
+        { word: '□力', answer: '壓' },
+        { word: '討□', answer: '厭' }
+      ]},
+      { kind: 'shape', chars: ['秒', '抄'], items: [
+        { word: '爭分奪□', answer: '秒' },
+        { word: '小□', answer: '抄' }
+      ]},
+      { kind: 'shape', chars: ['該', '孩'], items: [
+        { word: '應□', answer: '該' },
+        { word: '□童', answer: '孩' }
+      ]},
+      { kind: 'shape', chars: ['必', '心'], items: [
+        { word: '□然', answer: '必' },
+        { word: '□動', answer: '心' }
+      ]},
+      { kind: 'shape', chars: ['場', '陽', '揚', '楊', '湯', '傷'], items: [
+        { word: '商□', answer: '場' },
+        { word: '□光', answer: '陽' },
+        { word: '飛□', answer: '揚' },
+        { word: '□桃', answer: '楊' },
+        { word: '濃□', answer: '湯' },
+        { word: '□口', answer: '傷' }
+      ]}
+    ]
+  },
+  {
+    id: 'l5-idiom',
+    title: '第 5 課成語（生字延伸）',
+    categories: [
+      { name: '利令智昏', hint: '例句：做人要誠實，千萬不能利令智昏。' },
+      { name: '重整旗鼓', hint: '例句：雖然比賽失敗了，他決定重整旗鼓，再接再厲。' },
+      { name: '四通八達', hint: '例句：這個城市交通四通八達，出門很方便。' },
+      { name: '融會貫通', hint: '例句：學習任何知識都要懂得融會貫通，不能僅靠死記硬背。' }
+    ],
+    sentences: [
+      { text: '形容受利欲迷惑，使得理智昏亂。', cat: 0 },
+      { text: '重新整頓發號施令的旗幟和戰鼓。比喻失敗後積聚力量，重新行動。', cat: 1 },
+      { text: '四方相通的道路。形容交通便利。', cat: 2 },
+      { text: '形容將各種知識或事物加以融合、貫穿，進而獲得全面通徹的領會。', cat: 3 }
+    ]
+  },
+  {
+    id: 'l5-rhetoric',
+    title: '第 5 課修辭＆複句',
+    categories: [
+      { name: '譬喻', hint: '用「像」等喻詞，把一件事物比成另一件相似的事物。' },
+      { name: '條件複句', hint: '用「只要……就……」等關聯詞，說明在什麼條件下，會有什麼結果。' }
+    ],
+    sentences: [
+      { text: '十月太陽像金球高高掛，我們在朝會時間練習大會操，大家都很努力，跳得滿身汗。', cat: 0 },
+      { text: '中間那段動作快得像飛轉的秒針，我經常左右不分，使得後面整排同學都跳錯。', cat: 0 },
+      { text: '藍天下，我們的絲帶像彩蝶翩翩起舞，有大家的陪伴，真好！', cat: 0 },
+      { text: '只要記得有絲帶是右手，沒絲帶是左手，這樣是不是就簡單多了？', cat: 1 }
+    ]
+  },
+  {
+    id: 'idiom-review-fill',
+    title: '第1-3課成語總複習（例句填空）',
+    categories: [
+      { name: '木已成舟', hint: '木材已經做成船隻，比喻已成事實，無法改變。' },
+      { name: '洋洋灑灑', hint: '形容言論或文章長篇大論。' },
+      { name: '滿載而歸', hint: '裝載得滿滿的回來，比喻收穫豐富。' },
+      { name: '塞翁失馬', hint: '比喻暫時受到損失，卻因禍得福，終於得到好處。' },
+      { name: '家喻戶曉', hint: '家家戶戶都知曉，形容事情、名聲傳播極廣。' },
+      { name: '拍案叫絕', hint: '拍桌子叫好，形容非常讚賞。' },
+      { name: '東窗事發', hint: '在東窗下的密謀已被揭發，比喻陰謀或非法勾當敗露。' },
+      { name: '搖旗吶喊', hint: '打仗時，揮舞旗幟，嘶喊以助聲威，比喻為他人助長聲勢。' },
+      { name: '咎由自取', hint: '所有的罪過、災禍都是自己造成的。' },
+      { name: '撲朔迷離', hint: '形容事物錯綜複雜，難以辨明真相。' },
+      { name: '餘音繞梁', hint: '形容歌聲或音樂美妙，餘味不絕。' },
+      { name: '嘆為觀止', hint: '讚美所看到的事物好到極點，無與倫比。' }
+    ],
+    sentences: [
+      { text: '過去的事____，如今說什麼都是多餘。', cat: 0 },
+      { text: '他拿起筆，在短時間內____的寫下了一篇文章。', cat: 1 },
+      { text: '這次戶外教育，同學們都____，收穫非常多。', cat: 2 },
+      { text: '那位明星雖然沒有得獎，但是從此打開了知名度，真可說是____。', cat: 3 },
+      { text: '李安是一位____的電影導演。', cat: 4 },
+      { text: '看到同學精采的表演，大家都____。', cat: 5 },
+      { text: '那個犯罪集團所做的壞事____，受到法律制裁。', cat: 6 },
+      { text: '觀眾席上的球迷紛紛為自己支持的隊伍____。', cat: 7 },
+      { text: '他的品行差勁，難怪不受大家歡迎，這是他____。', cat: 8 },
+      { text: '這個故事情節____，讓人很想繼續看下去。', cat: 9 },
+      { text: '他的歌聲優美，____，讓人回味不已。', cat: 10 },
+      { text: '看到美麗的煙火表演，大家都____。', cat: 11 }
+    ]
+  }
+];
+
+const CAT_COLORS = [
+  { color: 'var(--cat0)', soft: 'var(--cat0-soft)' },
+  { color: 'var(--cat1)', soft: 'var(--cat1-soft)' },
+  { color: 'var(--cat2)', soft: 'var(--cat2-soft)' },
+  { color: 'var(--cat3)', soft: 'var(--cat3-soft)' }
+];
+
+let currentLessonIndex = 0;
+let pool = [];          // 尚未配對成功的句子 {id, text, cat}
+let matched = [];       // 每個類別已配對的句子清單 (index 對應 categories)
+let selectedSentenceId = null;
+let selectedCatIndex = null;
+let mistakeCount = 0;
+let gameOver = false;
+
+// 限時挑戰設定：預設每一課有 30 秒，要調整秒數改這裡即可
+const TIME_LIMIT_SECONDS = 30;
+let timerEnabled = true;
+let timeLeft = TIME_LIMIT_SECONDS;
+let timerInterval = null;
+
+const $ = (sel) => document.querySelector(sel);
+const lessonTabsEl = $('#lessonTabs');
+const boardEl = $('#board');
+const basketsEl = $('#baskets');
+const poolEl = $('#pool');
+const toastEl = $('#toast');
+
+// 類別數量超過這個門檻時，籃子改用「多欄小卡」排版，避免題目一多畫面就被拉得很長
+const COMPACT_CATEGORY_THRESHOLD = 5;
+
+// 一句話可以同時符合多個類別：cat 可以是數字，也可以是陣列（例如 [0, 1, 2]）
+function catsOf(s) { return Array.isArray(s.cat) ? s.cat : [s.cat]; }
+function totalPairings(lesson) { return lesson.sentences.reduce((sum, s) => sum + catsOf(s).length, 0); }
+const DEFAULT_POOL_TITLE = '句子（點一句，再點左邊的修辭類別）';
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function showToast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => toastEl.classList.remove('show'), 1400);
+}
+
+function renderLessonTabs() {
+  lessonTabsEl.innerHTML = '';
+  if (LESSONS.length < 2) return; // 只有一課時不需要顯示切換列
+  LESSONS.forEach((lesson, i) => {
+    const b = document.createElement('button');
+    b.className = 'lesson-tab' + (i === currentLessonIndex ? ' active' : '');
+    b.textContent = lesson.title;
+    b.onclick = () => { currentLessonIndex = i; startLesson(); };
+    lessonTabsEl.appendChild(b);
+  });
+}
+
+/* ===== 一題一題選字 ===== */
+let pickQs = [], pickIdx = 0, pickRight = 0;
+function esc(t) { return String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function setPickMode(on) {
+  boardEl.hidden = on;
+  document.querySelector('.stats-row').hidden = on;
+  document.querySelector('.mode-toggle').hidden = on;
+  document.getElementById('btnTimerToggle').hidden = on;
+  document.getElementById('pickPanel').hidden = !on;
+}
+
+function startPick(lesson) {
+  clearInterval(timerInterval);
+  gameOver = true;
+  const of = kind => shuffle(lesson.groups.filter(g => (g.kind || 'shape') === kind)
+    .flatMap(g => g.items.map(it => ({ ...it, chars: g.chars, kind }))));
+  pickQs = of('sound').concat(of('shape'));
+  pickIdx = 0; pickRight = 0;
+  renderPick();
+}
+
+function renderPick() {
+  const q = pickQs[pickIdx];
+  updatePickCount();
+  if (q.kind === 'sound') {
+    $('#pickWord').innerHTML = [...q.word].map((c, i) =>
+      i === q.mark ? `<span class="pick-mark">${esc(c)}</span>` : esc(c)).join('');
+    $('#pickZhuyin').innerHTML = (q.note ? `<div class="pick-note">${esc(q.note)}</div>` : '') +
+      `「<b class="pick-mark-inline">${esc(q.word[q.mark])}</b>」的讀音：<span class="pick-box sound" id="pickBox"></span>`;
+  } else {
+    $('#pickWord').innerHTML = esc(q.word).replace('□', '<span class="pick-box" id="pickBox"></span>');
+    $('#pickZhuyin').innerHTML = '';
+  }
+  $('#pickFeedback').textContent = '';
+  $('#pickFeedback').className = 'pick-feedback';
+  $('#pickNext').hidden = true;
+  const opts = $('#pickOptions');
+  opts.innerHTML = '';
+  shuffle(q.chars).forEach(ch => {
+    const b = document.createElement('button');
+    b.className = 'pick-opt' + (q.kind === 'sound' ? ' sound' : '');
+    b.textContent = ch;
+    b.onclick = () => onPick(ch, b);
+    opts.appendChild(b);
+  });
+}
+
+function updatePickCount() {
+  const q = pickQs[pickIdx];
+  const tag = q.kind === 'sound' ? '多音字' : '形近字';
+  $('#pickCount').innerHTML = `<span class="pick-kind ${q.kind}">${tag}</span>　第 ${pickIdx + 1} 題 / 共 ${pickQs.length} 題　答對 ${pickRight} 題`;
+}
+
+function onPick(ch, btn) {
+  const q = pickQs[pickIdx];
+  const box = $('#pickBox');
+  const all = [...document.querySelectorAll('.pick-opt')];
+  all.forEach(b => b.disabled = true);
+  box.textContent = q.answer;
+  const fb = $('#pickFeedback');
+  if (ch === q.answer) {
+    pickRight++;
+    btn.classList.add('ok');
+    box.classList.add('ok');
+    fb.textContent = '答對了！👍';
+    fb.className = 'pick-feedback ok';
+  } else {
+    btn.classList.add('no');
+    all.find(b => b.textContent === q.answer).classList.add('ok');
+    box.classList.add('no');
+    fb.textContent = `不對喔，正確的是「${q.answer}」`;
+    fb.className = 'pick-feedback no';
+  }
+  updatePickCount();
+  const next = $('#pickNext');
+  next.textContent = pickIdx + 1 < pickQs.length ? '下一題 ➜' : '看成績 ➜';
+  next.hidden = false;
+  next.focus();
+}
+
+$('#pickNext').onclick = () => {
+  pickIdx++;
+  if (pickIdx < pickQs.length) { renderPick(); return; }
+  const total = pickQs.length;
+  const starCount = pickRight === total ? 3 : (pickRight >= total * 0.7 ? 2 : 1);
+  $('#winIcon').textContent = pickRight === total ? '🎉' : '💪';
+  $('#winTitle').textContent = pickRight === total ? '全部答對！' : '完成了！';
+  const starsEl = $('#stars');
+  starsEl.style.display = '';
+  starsEl.innerHTML = [1,2,3].map(n => `<span class="${n <= starCount ? '' : 'star-dim'}">⭐</span>`).join('');
+  $('#winSub').textContent = `${total} 題答對 ${pickRight} 題` + (pickRight < total ? '，再玩一次挑戰全對！' : '！');
+  $('#winOverlay').classList.add('show');
+};
+
+function startLesson() {
+  const lesson = LESSONS[currentLessonIndex];
+  $('#lessonName').textContent = lesson.title;
+  $('#winOverlay').classList.remove('show');
+  setPickMode(lesson.type === 'pick');
+  if (lesson.type === 'pick') { renderLessonTabs(); startPick(lesson); return; }
+  document.getElementById('statTotal').textContent = totalPairings(lesson);
+  document.querySelector('.pool-title').textContent = lesson.note || DEFAULT_POOL_TITLE;
+  mistakeCount = 0;
+  selectedSentenceId = null;
+  selectedCatIndex = null;
+  gameOver = false;
+  matched = lesson.categories.map(() => []);
+  pool = shuffle(lesson.sentences.map((s, i) => ({ id: 'l' + currentLessonIndex + '-' + i, text: s.text, cats: catsOf(s), remaining: catsOf(s).slice() })));
+  renderLessonTabs();
+  renderBaskets();
+  renderPool();
+  updateStats();
+  $('#winOverlay').classList.remove('show');
+  startTimer();
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  timeLeft = TIME_LIMIT_SECONDS;
+  updateTimerUI();
+  document.getElementById('timerWrap').style.display = timerEnabled ? 'flex' : 'none';
+  if (!timerEnabled) return;
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerUI();
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      onTimeUp();
+    }
+  }, 1000);
+}
+
+function updateTimerUI() {
+  document.getElementById('timerValue').textContent = timeLeft;
+  const pct = Math.max(0, timeLeft / TIME_LIMIT_SECONDS * 100);
+  document.getElementById('timerFill').style.width = pct + '%';
+  document.getElementById('timerFill').classList.toggle('low', timeLeft <= 10);
+  document.getElementById('timerValue').classList.toggle('low', timeLeft <= 10);
+}
+
+function onTimeUp() {
+  if (gameOver) return;
+  gameOver = true;
+  selectedSentenceId = null;
+  selectedCatIndex = null;
+  renderBaskets();
+  renderPool();
+  showTimeUp();
+}
+
+function renderBaskets() {
+  const lesson = LESSONS[currentLessonIndex];
+  basketsEl.innerHTML = '';
+  basketsEl.classList.toggle('locked', gameOver);
+  const isCompact = lesson.categories.length > COMPACT_CATEGORY_THRESHOLD;
+  basketsEl.classList.toggle('grid-mode', isCompact);
+  boardEl.classList.toggle('stacked', isCompact);
+  lesson.categories.forEach((cat, i) => {
+    const colors = CAT_COLORS[i % CAT_COLORS.length];
+    const div = document.createElement('div');
+    const total = lesson.sentences.filter(s => catsOf(s).includes(i)).length;
+    const done = matched[i].length;
+    div.className = 'basket' + (done === total ? ' complete' : '') + (selectedCatIndex === i ? ' selected' : '');
+    div.style.setProperty('--cat-color', colors.color);
+    div.style.setProperty('--cat-soft', colors.soft);
+    div.tabIndex = 0;
+    div.setAttribute('role', 'button');
+    div.setAttribute('aria-label', '修辭類別：' + cat.name);
+    div.innerHTML = `
+      <div class="basket-head">
+        <div class="basket-name">${cat.name}</div>
+        <div class="basket-count">${done}/${total}</div>
+      </div>
+      ${cat.hint ? `<div class="basket-hint">${cat.hint}</div>` : ''}
+      <div class="basket-slots">${matched[i].map(m => `<div class="basket-chip">${m.text}</div>`).join('')}</div>
+    `;
+    if (done < total) {
+      div.onclick = () => onPickCategory(i);
+      div.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPickCategory(i); } };
+    }
+    basketsEl.appendChild(div);
+  });
+}
+
+function renderPool() {
+  poolEl.innerHTML = '';
+  poolEl.classList.toggle('locked', gameOver);
+  if (pool.length === 0) {
+    poolEl.innerHTML = '<div class="pool-empty">句子都配對完成囉！</div>';
+    return;
+  }
+  pool.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'card' + (selectedSentenceId === s.id ? ' selected' : '');
+    card.dataset.id = s.id;
+    const main = document.createElement('div');
+    main.textContent = s.text;
+    card.appendChild(main);
+    if (s.cats.length > 1) {
+      const note = document.createElement('div');
+      note.className = 'card-note';
+      note.textContent = '★ 這一句要配對 ' + s.remaining.length + ' 種';
+      card.appendChild(note);
+    }
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.onclick = () => onPickSentence(s.id);
+    card.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPickSentence(s.id); } };
+    poolEl.appendChild(card);
+  });
+}
+
+function updateStats() {
+  const lesson = LESSONS[currentLessonIndex];
+  const done = matched.reduce((sum, arr) => sum + arr.length, 0);
+  document.getElementById('statDone').textContent = done;
+  document.getElementById('statMiss').textContent = mistakeCount;
+  document.getElementById('progressFill').style.width = (done / totalPairings(lesson) * 100) + '%';
+}
+
+function onPickSentence(id) {
+  if (gameOver) return;
+  selectedSentenceId = (selectedSentenceId === id) ? null : id;
+  renderPool();
+  if (selectedSentenceId !== null && selectedCatIndex !== null) attemptMatch();
+}
+
+function onPickCategory(i) {
+  if (gameOver) return;
+  selectedCatIndex = (selectedCatIndex === i) ? null : i;
+  renderBaskets();
+  if (selectedSentenceId !== null && selectedCatIndex !== null) attemptMatch();
+}
+
+function attemptMatch() {
+  const lesson = LESSONS[currentLessonIndex];
+  const sentence = pool.find(s => s.id === selectedSentenceId);
+  if (!sentence) return;
+  if (sentence.cats.includes(selectedCatIndex) && !sentence.remaining.includes(selectedCatIndex)) {
+    // 這一句已經配對過這個類別了：不算錯，只提醒
+    selectedCatIndex = null;
+    renderBaskets();
+    showToast('這一句已經配對過這個了，換另一種試試');
+    return;
+  }
+  if (sentence.remaining.includes(selectedCatIndex)) {
+    const hitCat = selectedCatIndex;
+    matched[hitCat].push({ id: sentence.id, text: sentence.text });
+    sentence.remaining = sentence.remaining.filter(c => c !== hitCat);
+    if (sentence.remaining.length === 0) pool = pool.filter(s => s.id !== sentence.id);
+    selectedSentenceId = null;
+    selectedCatIndex = null;
+    renderBaskets();
+    renderPool();
+    updateStats();
+    showToast('答對了！' + lesson.categories[hitCat].name + (sentence.remaining.length ? '（這句還要再配對 ' + sentence.remaining.length + ' 種）' : ''));
+    if (pool.length === 0) {
+      clearInterval(timerInterval);
+      gameOver = true;
+      setTimeout(showWin, 350);
+    }
+  } else {
+    mistakeCount++;
+    const wrongCatIndex = selectedCatIndex;
+    const wrongId = sentence.id;
+    gameOver = true;
+    clearInterval(timerInterval);
+    selectedSentenceId = null;
+    selectedCatIndex = null;
+    renderBaskets();
+    renderPool();
+    updateStats();
+    const basketNodes = basketsEl.children;
+    if (basketNodes[wrongCatIndex]) {
+      basketNodes[wrongCatIndex].classList.add('wrong');
+    }
+    const cardNodes = poolEl.children;
+    for (const node of cardNodes) {
+      if (node.dataset.id === wrongId) {
+        node.classList.add('wrong-shake');
+      }
+    }
+    showToast('按錯了，挑戰失敗！');
+    setTimeout(showFail, 500);
+  }
+}
+
+function showFail() {
+  const total = totalPairings(LESSONS[currentLessonIndex]);
+  const done = matched.reduce((sum, arr) => sum + arr.length, 0);
+  $('#winIcon').textContent = '❌';
+  $('#winTitle').textContent = '答錯了，挑戰失敗！';
+  const starsEl = $('#stars');
+  starsEl.style.display = 'none';
+  starsEl.innerHTML = '';
+  $('#winSub').textContent = `答對了 ${done} / ${total} 項，按到錯的類別就算失敗。按「重新開始」再挑戰一次，這次按之前要想清楚喔！`;
+  $('#winOverlay').classList.add('show');
+}
+
+function showWin() {
+  const total = totalPairings(LESSONS[currentLessonIndex]);
+  let starCount = 3;
+  if (mistakeCount >= total) starCount = 1;
+  else if (mistakeCount > 0) starCount = 2;
+  $('#winIcon').textContent = '🎉';
+  $('#winTitle').textContent = '全部過關！';
+  const starsEl = $('#stars');
+  starsEl.style.display = '';
+  starsEl.innerHTML = [1,2,3].map(n => `<span class="${n <= starCount ? '' : 'star-dim'}">⭐</span>`).join('');
+  $('#winSub').textContent = `答錯 ${mistakeCount} 次，全部 ${total} 項都配對正確了！`;
+  $('#winOverlay').classList.add('show');
+}
+
+function showTimeUp() {
+  const total = totalPairings(LESSONS[currentLessonIndex]);
+  const done = matched.reduce((sum, arr) => sum + arr.length, 0);
+  $('#winIcon').textContent = '⏰';
+  $('#winTitle').textContent = '時間到！';
+  const starsEl = $('#stars');
+  starsEl.style.display = 'none';
+  starsEl.innerHTML = '';
+  $('#winSub').textContent = `完成了 ${done} / ${total} 項，答錯 ${mistakeCount} 次，再試一次看看！`;
+  $('#winOverlay').classList.add('show');
+}
+
+document.getElementById('btnRestart').onclick = startLesson;
+document.getElementById('btnPlayAgain').onclick = startLesson;
+
+document.getElementById('btnTimerToggle').onclick = (e) => {
+  timerEnabled = !timerEnabled;
+  e.currentTarget.classList.toggle('active', timerEnabled);
+  e.currentTarget.setAttribute('aria-pressed', String(timerEnabled));
+  e.currentTarget.textContent = timerEnabled ? `⏱ 限時${TIME_LIMIT_SECONDS}秒` : '⏱ 不限時';
+  startTimer();
+};
+
+document.getElementById('btnLearn').onclick = () => {
+  document.body.classList.remove('test-mode');
+  document.getElementById('btnLearn').classList.add('active');
+  document.getElementById('btnLearn').setAttribute('aria-pressed', 'true');
+  document.getElementById('btnTest').classList.remove('active');
+  document.getElementById('btnTest').setAttribute('aria-pressed', 'false');
+};
+document.getElementById('btnTest').onclick = () => {
+  document.body.classList.add('test-mode');
+  document.getElementById('btnTest').classList.add('active');
+  document.getElementById('btnTest').setAttribute('aria-pressed', 'true');
+  document.getElementById('btnLearn').classList.remove('active');
+  document.getElementById('btnLearn').setAttribute('aria-pressed', 'false');
+};
+
+document.body.classList.add('test-mode');
+startLesson();
+</script>
+
+
+</body></html>
