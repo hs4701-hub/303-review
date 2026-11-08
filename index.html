@@ -444,7 +444,7 @@
     border-radius: 30px; font-size: 13px; font-weight: 500; z-index: 90;
     opacity: 0; transition: opacity .2s;
     pointer-events: none;
-    white-space: nowrap;
+    white-space: normal; text-align: center; max-width: calc(100vw - 32px);
   }
   .toast.show { opacity: 1; }
 
@@ -501,6 +501,10 @@
   }
 
   button:focus-visible, .basket:focus-visible, .card:focus-visible, .lesson-tab:focus-visible {
+    outline: 3px solid var(--cat2);
+    outline-offset: 2px;
+  }
+  .unit-btn:focus-visible, .part-tab:focus-visible, .arc-unit:focus-visible, .arc-part:focus-visible, .archive summary:focus-visible {
     outline: 3px solid var(--cat2);
     outline-offset: 2px;
   }
@@ -573,6 +577,83 @@
     .basket, .card, .progress-fill, .timer-fill { transition: none; }
     .basket.wrong, .card.wrong-shake, .timer-value.low { animation: none; }
   }
+
+  /* ===== 升級：一課一按鈕、已考過、星星紀錄、音效 ===== */
+  .star-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-weight: 700; font-size: 13px;
+    background: var(--paper); border: 1.5px solid var(--line);
+    padding: 7px 12px; border-radius: 20px; color: var(--ink);
+    box-shadow: var(--shadow-line);
+  }
+  .unit-nav { display: flex; gap: 10px; flex-wrap: wrap; padding: 6px 4px 8px; }
+  .unit-btn {
+    font-family: 'Noto Sans TC', sans-serif; font-weight: 800; font-size: 16px;
+    border: 2px solid var(--line); background: var(--paper); color: var(--ink);
+    padding: 10px 18px; border-radius: 16px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    box-shadow: var(--shadow-line); min-width: 96px;
+  }
+  .unit-btn .u-stars { font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+  .unit-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .unit-btn.active .u-stars { color: var(--sun); }
+  .unit-empty {
+    font-size: 14px; color: var(--ink-soft); background: var(--paper);
+    border: 1.5px dashed var(--line); border-radius: 14px; padding: 12px 16px;
+  }
+  .part-tabs { display: flex; gap: 8px; flex-wrap: wrap; padding: 6px 4px 14px; align-items: center; }
+  .part-tabs .now { font-size: 13px; font-weight: 700; color: var(--ink-soft); margin-right: 2px; }
+  .part-tab {
+    font-family: 'Noto Sans TC', sans-serif; font-weight: 700; font-size: 13px;
+    border: 1.5px solid var(--line); background: var(--paper); color: var(--ink-soft);
+    padding: 8px 14px; border-radius: 20px; cursor: pointer;
+  }
+  .part-tab.active { background: var(--sun); border-color: var(--sun-deep); color: #1E3A4C; }
+  .part-tab .p-stars, .arc-part .p-stars { margin-left: 4px; font-size: 11px; letter-spacing: -1px; }
+
+  .archive {
+    margin: 28px 4px 8px; background: var(--paper); border: 1.5px solid var(--line);
+    border-radius: 18px; box-shadow: var(--shadow-line);
+  }
+  .archive summary {
+    cursor: pointer; list-style: none; padding: 14px 18px;
+    font-weight: 800; font-size: 15px; color: var(--ink);
+    display: flex; justify-content: space-between; align-items: center; border-radius: 18px;
+  }
+  .archive summary::-webkit-details-marker { display: none; }
+  .archive summary .arrow { display: inline-block; transition: transform .2s; color: var(--ink-soft); }
+  .archive[open] summary .arrow { transform: rotate(90deg); }
+  .archive-body { padding: 0 14px 14px; }
+  .arc-exam { font-size: 13px; font-weight: 700; color: var(--ink-soft); margin: 6px 4px 8px; }
+  .arc-list { display: flex; flex-direction: column; gap: 8px; }
+  .arc-unit {
+    width: 100%; text-align: left; font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700; font-size: 14px; color: var(--ink);
+    background: var(--paper-soft); border: 1.5px solid var(--line); border-radius: 12px;
+    padding: 10px 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  }
+  .arc-unit .u-stars { font-size: 12px; color: var(--ink-soft); }
+  .arc-unit.open { border-color: var(--ink-soft); }
+  .arc-parts { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 4px 4px 14px; }
+  .arc-part {
+    font-family: 'Noto Sans TC', sans-serif; font-weight: 700; font-size: 13px;
+    border: 1.5px solid var(--line); background: var(--paper); color: var(--ink-soft);
+    padding: 7px 12px; border-radius: 20px; cursor: pointer;
+  }
+  .arc-part.active { background: var(--sun); border-color: var(--sun-deep); color: #1E3A4C; }
+  .save-note { font-size: 12px; color: var(--ink-soft); text-align: center; margin: 14px 8px 4px; line-height: 1.6; }
+
+  .win-explain {
+    text-align: left; background: var(--paper-soft); border: 1.5px solid var(--line);
+    border-radius: 14px; padding: 12px 14px; margin: -6px 0 18px;
+    font-size: 13.5px; line-height: 1.7; color: var(--ink);
+  }
+  .win-explain:empty { display: none; }
+  .win-explain .ex-q { color: var(--ink-soft); }
+  .win-explain .ex-a { font-weight: 800; color: var(--cat1); }
+  .win-explain .ex-h { color: var(--ink-soft); font-size: 12.5px; }
+  .new-best { display: inline-block; background: var(--sun); color: #1E3A4C; font-weight: 800; font-size: 12px; padding: 3px 10px; border-radius: 12px; margin-bottom: 12px; }
+  #fx { position: fixed; inset: 0; pointer-events: none; z-index: 120; }
 </style>
 
 <div class="page">
@@ -595,10 +676,13 @@
       </div>
       <button class="btn-ghost active" id="btnTimerToggle" aria-pressed="true">⏱ 限時30秒</button>
       <button class="btn-ghost" id="btnRestart">↺ 重新開始</button>
+      <button class="btn-ghost" id="btnSound" aria-pressed="true">🔊 音效開</button>
+      <span class="star-chip" id="starTotal" title="已收集的星星">⭐ 0</span>
     </div>
   </header>
 
-  <div class="lesson-tabs" id="lessonTabs"></div>
+  <nav class="unit-nav" id="unitNav" aria-label="選擇課次"></nav>
+  <div class="part-tabs" id="partTabs"></div>
 
   <div class="stats-row">
     <div class="stat">已完成 <b id="statDone">0</b>/<span id="statTotal">0</span></div>
@@ -627,7 +711,11 @@
     <div class="pick-feedback" id="pickFeedback"></div>
     <button class="btn-primary pick-next" id="pickNext" hidden>下一題 ➜</button>
   </section>
+
+  <details class="archive" id="archive"></details>
+  <p class="save-note">⭐ 星星會記在「這台裝置」上，下次打開還在。請用同一台手機或平板，用 Chrome 或 Safari 打開喔！</p>
 </div>
+<canvas id="fx" aria-hidden="true"></canvas>
 
 <div class="toast" id="toast"></div>
 
@@ -637,6 +725,8 @@
     <h2 id="winTitle">全部過關！</h2>
     <div class="stars" id="stars"></div>
     <div class="win-sub" id="winSub"></div>
+    <div id="winBest"></div>
+    <div class="win-explain" id="winExplain"></div>
     <div class="win-actions">
       <button class="btn-primary" id="btnPlayAgain">再玩一次</button>
     </div>
@@ -1179,6 +1269,125 @@ const CAT_COLORS = [
   { color: 'var(--cat3)', soft: 'var(--cat3-soft)' }
 ];
 
+/* ============================================================
+   課程按鈕區：題目內容還是寫在上面的 LESSONS，這裡只決定「放在哪顆按鈕」。
+   parts 裡的 id 對應 LESSONS 的 id；label 是按鈕上的字。
+   - UNITS：目前範圍（網站上方），第 7 課起一課一顆。
+   - ARCHIVE：已考過（網站最下方，收合）。每次月考後，把考過的課整顆搬進去。
+   ============================================================ */
+const UNITS = [
+  // 範例：{ key: 'u7', title: '第 7 課', parts: [
+  //   { id: 'l7-pick', label: '多音字＆形近字' },
+  //   { id: 'l7-idiom', label: '成語（生字延伸）' },
+  //   { id: 'l7-rhetoric', label: '修辭＆複句' } ] },
+];
+
+const ARCHIVE = [
+  { exam: '第一次月考（第 1～6 課）', units: [
+    { key: 'a1', title: '第 1 課', parts: [
+      { id: 'l1-pick', label: '多音字＆形近字' },
+      { id: 'l1-idiom', label: '成語' },
+      { id: 'l1', label: '修辭' } ] },
+    { key: 'a2', title: '第 2 課', parts: [
+      { id: 'l2-pick', label: '多音字＆形近字' },
+      { id: 'l2', label: '成語' },
+      { id: 'l2-rhetoric', label: '修辭' } ] },
+    { key: 'a3', title: '第 3 課', parts: [
+      { id: 'l3-pick', label: '多音字＆形近字' },
+      { id: 'l3', label: '成語' },
+      { id: 'l3-rhetoric', label: '修辭' } ] },
+    { key: 'a4', title: '第 4 課', parts: [
+      { id: 'l4-pick', label: '多音字＆形近字' },
+      { id: 'l4-idiom', label: '成語' },
+      { id: 'l4-rhetoric', label: '修辭' } ] },
+    { key: 'a5', title: '第 5 課', parts: [
+      { id: 'l5-pick', label: '形近字' },
+      { id: 'l5-idiom', label: '成語（生字延伸）' },
+      { id: 'l5-rhetoric', label: '修辭＆複句' } ] },
+    { key: 'a6', title: '第 6 課', parts: [
+      { id: 'l6-pick', label: '多音字＆形近字' },
+      { id: 'l6-idiom', label: '成語（生字延伸）' },
+      { id: 'l6-rhetoric', label: '修辭＆複句' } ] },
+    { key: 'a-r13', title: '第 1-3 課成語總複習', parts: [
+      { id: 'idiom-review-fill', label: '例句填空' } ] },
+    { key: 'a-r46', title: '第 4-6 課成語總複習', parts: [
+      { id: 'idiom-review-fill-4-6', label: '例句填空' } ] }
+  ]}
+];
+
+const ALL_UNITS = UNITS.concat(...ARCHIVE.map(g => g.units));
+function lessonIdx(id) { return LESSONS.findIndex(l => l.id === id); }
+function unitOfLesson(id) { return ALL_UNITS.find(u => u.parts.some(p => p.id === id)); }
+
+/* ===== 星星紀錄（存在這台裝置的瀏覽器裡） ===== */
+const SAVE_KEY = 'review303-v1';
+let SAVE = { stars: {}, mute: false };
+try { const raw = localStorage.getItem(SAVE_KEY); if (raw) SAVE = Object.assign(SAVE, JSON.parse(raw)); } catch (e) {}
+function persist() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(SAVE)); } catch (e) {} }
+function starsOf(id) { return SAVE.stars[id] || 0; }
+function recordStars(id, n) {
+  const old = starsOf(id);
+  if (n > old) { SAVE.stars[id] = n; persist(); }
+  return n > old;
+}
+function unitStars(u) { return u.parts.reduce((s, p) => s + starsOf(p.id), 0); }
+function starText(n) { return '★'.repeat(n) + '☆'.repeat(3 - n); }
+
+/* ===== 音效（不需要外部檔案） ===== */
+let AC = null;
+function tone(f, t0, d, type, v) {
+  const o = AC.createOscillator(), g = AC.createGain();
+  o.type = type || 'triangle'; o.frequency.value = f;
+  g.gain.setValueAtTime(0.0001, AC.currentTime + t0);
+  g.gain.exponentialRampToValueAtTime(v || 0.09, AC.currentTime + t0 + 0.02);
+  g.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime + t0 + d);
+  o.connect(g); g.connect(AC.destination);
+  o.start(AC.currentTime + t0); o.stop(AC.currentTime + t0 + d + 0.05);
+}
+const SFX = {
+  right: [[523,0,.12],[659,.1,.12],[784,.2,.2]],
+  combo: [[659,0,.1],[784,.08,.1],[1047,.16,.25]],
+  wrong: [[330,0,.16],[262,.16,.26]],
+  win:   [[523,0,.14],[659,.14,.14],[784,.28,.14],[1047,.42,.5]]
+};
+function sfx(name) {
+  if (SAVE.mute) return;
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    if (AC.state === 'suspended') AC.resume();
+    SFX[name].forEach(s => tone(s[0], s[1], s[2], name === 'wrong' ? 'sine' : 'triangle'));
+  } catch (e) {}
+}
+
+/* ===== 紙花 ===== */
+const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fxCanvas = document.getElementById('fx'), fxCtx = fxCanvas.getContext('2d');
+let fxParts = [], fxRaf = 0;
+function confetti(n) {
+  if (reduceMotion) return;
+  fxCanvas.width = innerWidth; fxCanvas.height = innerHeight;
+  const colors = ['#FFC93C', '#FF6B6B', '#2FB894', '#6E7FE0', '#E0A15C', '#FF8CB6'];
+  for (let i = 0; i < n; i++) {
+    fxParts.push({ x: innerWidth / 2 + (Math.random() - .5) * innerWidth * .6, y: -10,
+      vx: (Math.random() - .5) * 5, vy: Math.random() * 3 + 2, w: Math.random() * 8 + 6, h: Math.random() * 5 + 4,
+      r: Math.random() * 6, vr: (Math.random() - .5) * .4, c: colors[i % colors.length], life: 0 });
+  }
+  if (!fxRaf) fxRaf = requestAnimationFrame(fxTick);
+}
+function fxTick() {
+  fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+  fxParts.forEach(p => { p.life++; p.vy += .12; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+    fxCtx.save(); fxCtx.translate(p.x, p.y); fxCtx.rotate(p.r); fxCtx.fillStyle = p.c;
+    fxCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); fxCtx.restore(); });
+  fxParts = fxParts.filter(p => p.y < fxCanvas.height + 20 && p.life < 300);
+  if (fxParts.length) fxRaf = requestAnimationFrame(fxTick);
+  else { fxRaf = 0; fxCtx.clearRect(0, 0, fxCanvas.width, fxCanvas.height); }
+}
+
+/* ===== 連續答對 ===== */
+let combo = 0;
+function comboText() { return combo >= 2 ? `　🔥 連續答對 ×${combo}` : ''; }
+
 let currentLessonIndex = 0;
 let pool = [];          // 尚未配對成功的句子 {id, text, cat}
 let matched = [];       // 每個類別已配對的句子清單 (index 對應 categories)
@@ -1194,7 +1403,6 @@ let timeLeft = TIME_LIMIT_SECONDS;
 let timerInterval = null;
 
 const $ = (sel) => document.querySelector(sel);
-const lessonTabsEl = $('#lessonTabs');
 const boardEl = $('#board');
 const basketsEl = $('#baskets');
 const poolEl = $('#pool');
@@ -1224,16 +1432,89 @@ function showToast(msg) {
   showToast._t = setTimeout(() => toastEl.classList.remove('show'), 1400);
 }
 
+let openArcUnit = null; // 已考過區裡展開的那一課
+function goPart(id, scroll) {
+  const i = lessonIdx(id);
+  if (i < 0) return;
+  currentLessonIndex = i;
+  startLesson();
+  if (scroll) window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+
 function renderLessonTabs() {
-  lessonTabsEl.innerHTML = '';
-  if (LESSONS.length < 2) return; // 只有一課時不需要顯示切換列
-  LESSONS.forEach((lesson, i) => {
+  const curId = LESSONS[currentLessonIndex].id;
+  const curUnit = unitOfLesson(curId);
+
+  // 上方：目前範圍的課
+  const nav = $('#unitNav');
+  nav.innerHTML = '';
+  if (UNITS.length === 0) {
+    nav.innerHTML = '<div class="unit-empty">新的一課準備中！先到最下面「📁 已考過」複習，收集星星吧 ⭐</div>';
+  }
+  UNITS.forEach(u => {
     const b = document.createElement('button');
-    b.className = 'lesson-tab' + (i === currentLessonIndex ? ' active' : '');
-    b.textContent = lesson.title;
-    b.onclick = () => { currentLessonIndex = i; startLesson(); };
-    lessonTabsEl.appendChild(b);
+    b.className = 'unit-btn' + (u === curUnit ? ' active' : '');
+    b.innerHTML = `<span>${esc(u.title)}</span><span class="u-stars">⭐ ${unitStars(u)} / ${u.parts.length * 3}</span>`;
+    b.onclick = () => goPart(u.parts[0].id);
+    nav.appendChild(b);
   });
+
+  // 目前這一課的各部分
+  const pt = $('#partTabs');
+  pt.innerHTML = '';
+  if (curUnit && curUnit.parts.length > 0) {
+    pt.innerHTML = `<span class="now">${esc(curUnit.title)}：</span>`;
+    curUnit.parts.forEach(p => {
+      const b = document.createElement('button');
+      b.className = 'part-tab' + (p.id === curId ? ' active' : '');
+      b.innerHTML = `${esc(p.label)}<span class="p-stars">${starText(starsOf(p.id))}</span>`;
+      b.onclick = () => goPart(p.id);
+      pt.appendChild(b);
+    });
+  }
+
+  // 下方：已考過
+  const arc = $('#archive');
+  const wasOpen = arc.open;
+  const arcTotal = ARCHIVE.reduce((s, g) => s + g.units.reduce((t, u) => t + unitStars(u), 0), 0);
+  const arcMax = ARCHIVE.reduce((s, g) => s + g.units.reduce((t, u) => t + u.parts.length * 3, 0), 0);
+  arc.innerHTML = `<summary><span>📁 已考過（點開複習）</span><span class="u-stars">⭐ ${arcTotal} / ${arcMax}　<span class="arrow">▶</span></span></summary><div class="archive-body"></div>`;
+  arc.open = wasOpen;
+  const body = arc.querySelector('.archive-body');
+  ARCHIVE.forEach(g => {
+    const h = document.createElement('div');
+    h.className = 'arc-exam';
+    h.textContent = g.exam;
+    body.appendChild(h);
+    const list = document.createElement('div');
+    list.className = 'arc-list';
+    g.units.forEach(u => {
+      const ub = document.createElement('button');
+      const isOpen = openArcUnit === u.key;
+      ub.className = 'arc-unit' + (isOpen ? ' open' : '');
+      ub.setAttribute('aria-expanded', String(isOpen));
+      ub.innerHTML = `<span>${isOpen ? '▼' : '▶'} ${esc(u.title)}</span><span class="u-stars">⭐ ${unitStars(u)} / ${u.parts.length * 3}</span>`;
+      ub.onclick = () => { openArcUnit = isOpen ? null : u.key; renderLessonTabs(); };
+      list.appendChild(ub);
+      if (isOpen) {
+        const ps = document.createElement('div');
+        ps.className = 'arc-parts';
+        u.parts.forEach(p => {
+          const pb = document.createElement('button');
+          pb.className = 'arc-part' + (p.id === curId ? ' active' : '');
+          pb.innerHTML = `${esc(p.label)}<span class="p-stars">${starText(starsOf(p.id))}</span>`;
+          pb.onclick = () => goPart(p.id, true);
+          ps.appendChild(pb);
+        });
+        list.appendChild(ps);
+      }
+    });
+    body.appendChild(list);
+  });
+
+  // 總星星數
+  const total = Object.values(SAVE.stars).reduce((s, n) => s + n, 0);
+  $('#starTotal').textContent = '⭐ ' + total;
 }
 
 /* ===== 一題一題選字 ===== */
@@ -1267,7 +1548,7 @@ function renderPick() {
     $('#pickZhuyin').innerHTML = (q.note ? `<div class="pick-note">${esc(q.note)}</div>` : '') +
       `「<b class="pick-mark-inline">${esc(q.word[q.mark])}</b>」的讀音：<span class="pick-box sound" id="pickBox"></span>`;
   } else {
-    $('#pickWord').innerHTML = esc(q.word).replace('□', '<span class="pick-box" id="pickBox"></span>');
+    $('#pickWord').innerHTML = esc(q.word).split('□').join('<span class="pick-box"></span>'); // 一個詞有兩個空格（例如「空□□」）也可以
     $('#pickZhuyin').innerHTML = '';
   }
   $('#pickFeedback').textContent = '';
@@ -1292,22 +1573,27 @@ function updatePickCount() {
 
 function onPick(ch, btn) {
   const q = pickQs[pickIdx];
-  const box = $('#pickBox');
+  const boxes = [...document.querySelectorAll('#pickPanel .pick-box')];
   const all = [...document.querySelectorAll('.pick-opt')];
   all.forEach(b => b.disabled = true);
-  box.textContent = q.answer;
+  boxes.forEach(b => b.textContent = q.answer);
   const fb = $('#pickFeedback');
   if (ch === q.answer) {
     pickRight++;
+    combo++;
+    sfx(combo >= 3 ? 'combo' : 'right');
     btn.classList.add('ok');
-    box.classList.add('ok');
-    fb.textContent = '答對了！👍';
+    boxes.forEach(b => b.classList.add('ok'));
+    fb.textContent = '答對了！👍' + comboText();
     fb.className = 'pick-feedback ok';
   } else {
+    combo = 0;
+    sfx('wrong');
     btn.classList.add('no');
     all.find(b => b.textContent === q.answer).classList.add('ok');
-    box.classList.add('no');
-    fb.textContent = `不對喔，正確的是「${q.answer}」`;
+    boxes.forEach(b => b.classList.add('no'));
+    const full = q.kind === 'sound' ? q.word : q.word.split('□').join(q.answer);
+    fb.textContent = `不對喔，正確的是「${q.answer}」（${full}）`;
     fb.className = 'pick-feedback no';
   }
   updatePickCount();
@@ -1328,13 +1614,30 @@ $('#pickNext').onclick = () => {
   starsEl.style.display = '';
   starsEl.innerHTML = [1,2,3].map(n => `<span class="${n <= starCount ? '' : 'star-dim'}">⭐</span>`).join('');
   $('#winSub').textContent = `${total} 題答對 ${pickRight} 題` + (pickRight < total ? '，再玩一次挑戰全對！' : '！');
+  celebrate(starCount);
   $('#winOverlay').classList.add('show');
 };
+
+function celebrate(starCount) {
+  const id = LESSONS[currentLessonIndex].id;
+  const old = starsOf(id);
+  const isNew = recordStars(id, starCount);
+  $('#winBest').innerHTML = isNew && old > 0 ? '<span class="new-best">🏅 新紀錄！星星變多了</span>'
+    : (isNew ? '<span class="new-best">⭐ 星星收進紀錄囉</span>' : '');
+  sfx('win');
+  confetti(starCount === 3 ? 160 : 70);
+  renderLessonTabs();
+}
 
 function startLesson() {
   const lesson = LESSONS[currentLessonIndex];
   $('#lessonName').textContent = lesson.title;
   $('#winOverlay').classList.remove('show');
+  $('#winExplain').innerHTML = '';
+  $('#winBest').innerHTML = '';
+  combo = 0;
+  const u = unitOfLesson(lesson.id);
+  if (u && !UNITS.includes(u)) openArcUnit = u.key;
   setPickMode(lesson.type === 'pick');
   if (lesson.type === 'pick') { renderLessonTabs(); startPick(lesson); return; }
   document.getElementById('statTotal').textContent = totalPairings(lesson);
@@ -1489,10 +1792,12 @@ function attemptMatch() {
     if (sentence.remaining.length === 0) pool = pool.filter(s => s.id !== sentence.id);
     selectedSentenceId = null;
     selectedCatIndex = null;
+    combo++;
+    if (pool.length > 0) sfx(combo >= 3 ? 'combo' : 'right');
     renderBaskets();
     renderPool();
     updateStats();
-    showToast('答對了！' + lesson.categories[hitCat].name + (sentence.remaining.length ? '（這句還要再配對 ' + sentence.remaining.length + ' 種）' : ''));
+    showToast('答對了！' + lesson.categories[hitCat].name + (sentence.remaining.length ? '（這句還要再配對 ' + sentence.remaining.length + ' 種）' : '') + comboText());
     if (pool.length === 0) {
       clearInterval(timerInterval);
       gameOver = true;
@@ -1500,8 +1805,11 @@ function attemptMatch() {
     }
   } else {
     mistakeCount++;
+    combo = 0;
+    sfx('wrong');
     const wrongCatIndex = selectedCatIndex;
     const wrongId = sentence.id;
+    showExplain(lesson, sentence, wrongCatIndex);
     gameOver = true;
     clearInterval(timerInterval);
     selectedSentenceId = null;
@@ -1524,6 +1832,19 @@ function attemptMatch() {
   }
 }
 
+// 答錯時的解說：只用題目裡原本就有的資料（類別名稱與說明），不另外加內容
+function showExplain(lesson, sentence, wrongCat) {
+  const useHint = h => h && !h.includes('僅供學習參考');
+  const right = sentence.remaining.map(c => lesson.categories[c]);
+  const lines = right.map(c =>
+    `<div>👉 正確答案：<span class="ex-a">${esc(c.name)}</span></div>` +
+    (useHint(c.hint) ? `<div class="ex-h">${esc(c.hint)}</div>` : '')).join('');
+  const wrong = lesson.categories[wrongCat];
+  $('#winExplain').innerHTML =
+    `<div class="ex-q">這一句：「${esc(sentence.text)}」</div>` +
+    `<div>你選的是「${esc(wrong.name)}」</div>` + lines;
+}
+
 function showFail() {
   const total = totalPairings(LESSONS[currentLessonIndex]);
   const done = matched.reduce((sum, arr) => sum + arr.length, 0);
@@ -1532,7 +1853,7 @@ function showFail() {
   const starsEl = $('#stars');
   starsEl.style.display = 'none';
   starsEl.innerHTML = '';
-  $('#winSub').textContent = `答對了 ${done} / ${total} 項，按到錯的類別就算失敗。按「重新開始」再挑戰一次，這次按之前要想清楚喔！`;
+  $('#winSub').textContent = `答對了 ${done} / ${total} 項。看看下面的正確答案，再挑戰一次，這次一定可以！`;
   $('#winOverlay').classList.add('show');
 }
 
@@ -1547,6 +1868,7 @@ function showWin() {
   starsEl.style.display = '';
   starsEl.innerHTML = [1,2,3].map(n => `<span class="${n <= starCount ? '' : 'star-dim'}">⭐</span>`).join('');
   $('#winSub').textContent = `答錯 ${mistakeCount} 次，全部 ${total} 項都配對正確了！`;
+  celebrate(starCount);
   $('#winOverlay').classList.add('show');
 }
 
@@ -1588,7 +1910,24 @@ document.getElementById('btnTest').onclick = () => {
   document.getElementById('btnLearn').setAttribute('aria-pressed', 'false');
 };
 
+function updateSoundBtn() {
+  const b = document.getElementById('btnSound');
+  b.textContent = SAVE.mute ? '🔇 音效關' : '🔊 音效開';
+  b.setAttribute('aria-pressed', String(!SAVE.mute));
+  b.classList.toggle('active', !SAVE.mute);
+}
+document.getElementById('btnSound').onclick = () => {
+  SAVE.mute = !SAVE.mute; persist(); updateSoundBtn(); sfx('right');
+};
+updateSoundBtn();
+
 document.body.classList.add('test-mode');
+if (UNITS.length === 0) document.getElementById('archive').open = true;
+// 一打開：有目前範圍的課就先開第一課；還沒有就先開「已考過」裡的第一個
+{
+  const first = UNITS.length ? UNITS[0] : ARCHIVE[0].units[0];
+  currentLessonIndex = Math.max(0, lessonIdx(first.parts[0].id));
+}
 startLesson();
 </script>
 
