@@ -1259,6 +1259,87 @@ const LESSONS = [
       { text: '遇到困難時，我保持____，慢慢想辦法解決。', cat: 10 },
       { text: '他以前____，後來漸漸學會分享，變得更受歡迎。', cat: 11 }
     ]
+  },
+  {
+    id: 'l7-pick',
+    type: 'pick',
+    title: '第 7 課多音字＆形近字',
+    groups: [
+      { kind: 'sound', chars: ['ㄐㄩㄝˊ', 'ㄐㄧㄠˊ'], items: [
+        { word: '味同嚼蠟', mark: 2, answer: 'ㄐㄩㄝˊ' },
+        { word: '細嚼慢嚥', mark: 1, answer: 'ㄐㄧㄠˊ' }
+      ]},
+      { kind: 'shape', chars: ['流', '統'], items: [
+        { word: '□浪', answer: '流' },
+        { word: '□整', answer: '統' }
+      ]},
+      { kind: 'shape', chars: ['彼', '破', '波', '披', '坡'], items: [
+        { word: '□此', answer: '彼' },
+        { word: '□滅', answer: '破' },
+        { word: '□浪', answer: '波' },
+        { word: '□掛', answer: '披' },
+        { word: '下□', answer: '坡' }
+      ]},
+      { kind: 'shape', chars: ['滄', '倉', '蒼'], items: [
+        { word: '□桑', answer: '滄' },
+        { word: '穀□', answer: '倉' },
+        { word: '□白', answer: '蒼' }
+      ]},
+      { kind: 'shape', chars: ['意', '億', '憶'], items: [
+        { word: '□念', answer: '意' },
+        { word: '千□', answer: '億' },
+        { word: '記□', answer: '憶' }
+      ]},
+      { kind: 'shape', chars: ['歹', '多', '夕'], items: [
+        { word: '□毒', answer: '歹' },
+        { word: '□少', answer: '多' },
+        { word: '今□', answer: '夕' }
+      ]},
+      { kind: 'shape', chars: ['蕩', '盪'], items: [
+        { word: '空□□', answer: '蕩' },
+        { word: '□秋千', answer: '盪' }
+      ]},
+      { kind: 'shape', chars: ['剛', '綱', '網'], items: [
+        { word: '□才', answer: '剛' },
+        { word: '□要', answer: '綱' },
+        { word: '法□', answer: '網' }
+      ]}
+    ]
+  },
+  {
+    id: 'l7-idiom',
+    title: '第 7 課成語（生字延伸）',
+    categories: [
+      { name: '苦口婆心', hint: '例句：為了輔導行為偏差的孩子，老師苦口婆心的勸告他們許多做人處事的道理。' },
+      { name: '斬釘截鐵', hint: '例句：針對事發經過，他說得斬釘截鐵，叫人不相信也難。' },
+      { name: '朝令夕改', hint: '例句：這些規定朝令夕改，讓人感到非常困擾。' },
+      { name: '天羅地網', hint: '例句：警方布下天羅地網，成功抓到壞人，保護大家的安全。' }
+    ],
+    sentences: [
+      { text: '形容以懇切真摯的態度，竭力的勸告他人。', cat: 0 },
+      { text: '形容說話或辦事堅決果斷，毫不猶豫。', cat: 1 },
+      { text: '早上下達的命令，到傍晚就改變了。比喻政令、主張或意見反覆無常。', cat: 2 },
+      { text: '比喻防範極為嚴密，無法逃脫。', cat: 3 }
+    ]
+  },
+  {
+    id: 'l7-rhetoric',
+    title: '第 7 課修辭＆複句',
+    categories: [
+      { name: '類疊', hint: '同一個字詞或語句，連續或間隔重複出現。' },
+      { name: '轉化（擬人）', hint: '' },
+      { name: '譬喻', hint: '用「像」等喻詞，把一件事物比成另一件相似的事物。' },
+      { name: '選擇複句', hint: '' }
+    ],
+    sentences: [
+      { text: '你輕輕的搖盪', cat: 0 },
+      { text: '紅紅的夕陽', cat: 0 },
+      { text: '靜靜的看著河口，靜靜的望著海洋', cat: 0 },
+      { text: '長長的老街', cat: 0 },
+      { text: '蒼老的紅毛城，站在山坡上。靜靜的看著河口，靜靜的望著海洋，像在回憶以前的時光。', cat: 1 },
+      { text: '阿婆的鐵蛋，又硬又圓，又黑又亮，像那古早的故事一樣，愈嚼愈香。', cat: 2 },
+      { text: '小船哪！你輕輕的搖盪，是在網魚，還是在網那金黃色的波浪？', cat: 3 }
+    ]
   }
 ];
 
@@ -1276,6 +1357,10 @@ const CAT_COLORS = [
    - ARCHIVE：已考過（網站最下方，收合）。每次月考後，把考過的課整顆搬進去。
    ============================================================ */
 const UNITS = [
+  { key: 'u7', title: '第 7 課', parts: [
+    { id: 'l7-pick', label: '多音字＆形近字' },
+    { id: 'l7-idiom', label: '成語（生字延伸）' },
+    { id: 'l7-rhetoric', label: '修辭＆複句' } ] },
   // 範例：{ key: 'u7', title: '第 7 課', parts: [
   //   { id: 'l7-pick', label: '多音字＆形近字' },
   //   { id: 'l7-idiom', label: '成語（生字延伸）' },
