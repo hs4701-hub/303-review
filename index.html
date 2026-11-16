@@ -1340,6 +1340,87 @@ const LESSONS = [
       { text: '阿婆的鐵蛋，又硬又圓，又黑又亮，像那古早的故事一樣，愈嚼愈香。', cat: 2 },
       { text: '小船哪！你輕輕的搖盪，是在網魚，還是在網那金黃色的波浪？', cat: 3 }
     ]
+  },
+  {
+    id: 'l8-pick',
+    type: 'pick',
+    title: '第 8 課多音字＆形近字',
+    groups: [
+      { kind: 'sound', chars: ['ㄏㄜˋ', 'ㄏㄜˊ'], items: [
+        { word: '負荷', mark: 1, answer: 'ㄏㄜˋ' },
+        { word: '荷花', mark: 0, answer: 'ㄏㄜˊ' }
+      ]},
+      { kind: 'sound', chars: ['ㄆㄠˊ', 'ㄆㄠˋ'], items: [
+        { word: '炮烙', mark: 0, answer: 'ㄆㄠˊ' },
+        { word: '炮彈', mark: 0, answer: 'ㄆㄠˋ' }
+      ]},
+      { kind: 'sound', chars: ['ㄌㄧㄠˇ', 'ㄌㄧㄠˋ'], items: [
+        { word: '明瞭', mark: 1, answer: 'ㄌㄧㄠˇ' },
+        { word: '瞭望', mark: 0, answer: 'ㄌㄧㄠˋ' }
+      ]},
+      { kind: 'shape', chars: ['搏', '博'], items: [
+        { word: '放手一□', answer: '搏' },
+        { word: '□愛', answer: '博' }
+      ]},
+      { kind: 'shape', chars: ['吏', '使', '史'], items: [
+        { word: '酷□', answer: '吏' },
+        { word: '□喚', answer: '使' },
+        { word: '歷□', answer: '史' }
+      ]},
+      { kind: 'shape', chars: ['形', '型'], items: [
+        { word: '地□', answer: '形' },
+        { word: '典□', answer: '型' }
+      ]},
+      { kind: 'shape', chars: ['獲', '穫', '護'], items: [
+        { word: '□得', answer: '獲' },
+        { word: '收□', answer: '穫' },
+        { word: '□理', answer: '護' }
+      ]},
+      { kind: 'shape', chars: ['付', '附'], items: [
+        { word: '交□', answer: '付' },
+        { word: '□近', answer: '附' }
+      ]},
+      { kind: 'shape', chars: ['項', '頂'], items: [
+        { word: '□鍊', answer: '項' },
+        { word: '□峰', answer: '頂' }
+      ]},
+      { kind: 'shape', chars: ['鏢', '標'], items: [
+        { word: '飛□', answer: '鏢' },
+        { word: '□明', answer: '標' }
+      ]}
+    ]
+  },
+  {
+    id: 'l8-idiom',
+    title: '第 8 課成語（生字延伸）',
+    categories: [
+      { name: '史無前例', hint: '例句：這次強烈颱風來襲，造成各地史無前例的災情。' },
+      { name: '身敗名裂', hint: '例句：由於爆發一連串的醜聞，使那位演員身敗名裂。' },
+      { name: '兵不厭詐', hint: '例句：故事中的大將軍懂得兵不厭詐，成功保護城池。' },
+      { name: '標新立異', hint: '例句：他的作品風格標新立異，讓大家留下深刻印象。' }
+    ],
+    sentences: [
+      { text: '指以前從來沒有發生過。', cat: 0 },
+      { text: '事業、地位喪失，名譽毀壞。指人徹底失敗。', cat: 1 },
+      { text: '指作戰時不排斥以欺詐的方法來取勝。比喻為了達到目的，不排斥使用詭詐的手段。', cat: 2 },
+      { text: '形容創立新奇的名目或主張，以表示與眾不同。', cat: 3 }
+    ]
+  },
+  {
+    id: 'l8-rhetoric',
+    title: '第 8 課修辭＆複句',
+    categories: [
+      { name: '轉化（擬人）', hint: '' },
+      { name: '轉折複句', hint: '' },
+      { name: '並列複句', hint: '' }
+    ],
+    sentences: [
+      { text: '它安靜的站在公園裡，好像在說著過往的故事。', cat: 0 },
+      { text: '那裡有一排古炮，炮口對著遠方，像在想念以前風光的日子，又像在守護著安平古堡。', cat: 0 },
+      { text: '它們是勇敢的士兵，經過這麼長的日子，始終堅守著這片土地。', cat: 0 },
+      { text: '雖然經過三百多年，老城牆還是很堅固。', cat: 1 },
+      { text: '我們先參觀博物館，裡面放著許多文物：有過往的史料，有古城的模型，還有地圖和照片。', cat: 2 }
+    ]
   }
 ];
 
@@ -1357,6 +1438,10 @@ const CAT_COLORS = [
    - ARCHIVE：已考過（網站最下方，收合）。每次月考後，把考過的課整顆搬進去。
    ============================================================ */
 const UNITS = [
+  { key: 'u8', title: '第 8 課', parts: [
+    { id: 'l8-pick', label: '多音字＆形近字' },
+    { id: 'l8-idiom', label: '成語（生字延伸）' },
+    { id: 'l8-rhetoric', label: '修辭＆複句' } ] },
   { key: 'u7', title: '第 7 課', parts: [
     { id: 'l7-pick', label: '多音字＆形近字' },
     { id: 'l7-idiom', label: '成語（生字延伸）' },
