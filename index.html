@@ -1421,6 +1421,84 @@ const LESSONS = [
       { text: '雖然經過三百多年，老城牆還是很堅固。', cat: 1 },
       { text: '我們先參觀博物館，裡面放著許多文物：有過往的史料，有古城的模型，還有地圖和照片。', cat: 2 }
     ]
+  },
+  {
+    id: 'l9-pick',
+    type: 'pick',
+    title: '第 9 課多音字＆形近字',
+    groups: [
+      { kind: 'shape', chars: ['連', '蓮'], items: [
+        { word: '□忙', answer: '連' },
+        { word: '睡□', answer: '蓮' }
+      ]},
+      { kind: 'shape', chars: ['簇', '族'], items: [
+        { word: '□擁', answer: '簇' },
+        { word: '家□', answer: '族' }
+      ]},
+      { kind: 'shape', chars: ['武', '式'], items: [
+        { word: '比□', answer: '武' },
+        { word: '招□', answer: '式' }
+      ]},
+      { kind: 'shape', chars: ['悟', '語'], items: [
+        { word: '覺□', answer: '悟' },
+        { word: '標□', answer: '語' }
+      ]},
+      { kind: 'shape', chars: ['曾', '層'], items: [
+        { word: '未□', answer: '曾' },
+        { word: '樓□', answer: '層' }
+      ]},
+      { kind: 'shape', chars: ['殖', '值', '直', '植'], items: [
+        { word: '生□', answer: '殖' },
+        { word: '□得', answer: '值' },
+        { word: '□接', answer: '直' },
+        { word: '培□', answer: '植' }
+      ]},
+      { kind: 'shape', chars: ['域', '國', '或'], items: [
+        { word: '領□', answer: '域' },
+        { word: '□民', answer: '國' },
+        { word: '□者', answer: '或' }
+      ]},
+      { kind: 'shape', chars: ['鉤', '釣'], items: [
+        { word: '鐵□', answer: '鉤' },
+        { word: '□餌', answer: '釣' }
+      ]},
+      { kind: 'shape', chars: ['熊', '能', '態'], items: [
+        { word: '黑□', answer: '熊' },
+        { word: '功□', answer: '能' },
+        { word: '狀□', answer: '態' }
+      ]}
+    ]
+  },
+  {
+    id: 'l9-idiom',
+    title: '第 9 課成語（生字延伸）',
+    categories: [
+      { name: '別開生面', hint: '例句：經過討論，我們打算舉辦一場別開生面的慶生活動。' },
+      { name: '層出不窮', hint: '例句：大家動腦想點子，創意層出不窮，活動變得更有趣。' },
+      { name: '大智若愚', hint: '例句：他的個性穩重，大智若愚，不會輕易顯露才華。' },
+      { name: '拾人牙慧', hint: '例句：寫作文時要多思考，避免只是拾人牙慧，才能寫出自己的想法。' }
+    ],
+    sentences: [
+      { text: '比喻另外開創新的局面、風格、形式。', cat: 0 },
+      { text: '形容接連出現，沒有止盡。', cat: 1 },
+      { text: '指具有極高智慧的人，往往表面上看起來似乎愚笨。', cat: 2 },
+      { text: '比喻仿效他人的言論或主張。', cat: 3 }
+    ]
+  },
+  {
+    id: 'l9-rhetoric',
+    title: '第 9 課修辭＆複句',
+    categories: [
+      { name: '並列複句', hint: '' },
+      { name: '因果複句', hint: '' },
+      { name: '條件複句', hint: '' }
+    ],
+    sentences: [
+      { text: '他們不是辛苦的去找魚，而是打造一個讓魚可以安心生長的魚屋，讓魚自己住進來的。', cat: 0 },
+      { text: '不用出海，也不用辛苦的釣魚', cat: 0 },
+      { text: '因為這裡大魚進不去，所以是小魚最安全的生活空間；', cat: 1 },
+      { text: '只要拿著魚網到這裡抓魚，就可以好好享用了。', cat: 2 }
+    ]
   }
 ];
 
@@ -1438,6 +1516,10 @@ const CAT_COLORS = [
    - ARCHIVE：已考過（網站最下方，收合）。每次月考後，把考過的課整顆搬進去。
    ============================================================ */
 const UNITS = [
+  { key: 'u9', title: '第 9 課', parts: [
+    { id: 'l9-pick', label: '多音字＆形近字' },
+    { id: 'l9-idiom', label: '成語（生字延伸）' },
+    { id: 'l9-rhetoric', label: '修辭＆複句' } ] },
   { key: 'u8', title: '第 8 課', parts: [
     { id: 'l8-pick', label: '多音字＆形近字' },
     { id: 'l8-idiom', label: '成語（生字延伸）' },
